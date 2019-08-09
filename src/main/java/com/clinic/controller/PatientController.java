@@ -1,6 +1,7 @@
 package com.clinic.controller;
 
 import com.clinic.event.ResourceCreatedEvent;
+import com.clinic.exception.ResourceNotFoundException;
 import com.clinic.model.Patient;
 import com.clinic.repository.PatientRepository;
 import com.clinic.service.PatientService;
@@ -75,6 +76,7 @@ public class PatientController {
 			return ResponseEntity.noContent().build();
 		}
 
-		return ResponseEntity.notFound().build();
+		throw new ResourceNotFoundException();
+		//return ResponseEntity.notFound().build();
 	}
 }
